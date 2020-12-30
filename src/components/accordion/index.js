@@ -1,5 +1,5 @@
 import React, {useState, useContext, createContext} from 'react'
-import { Container, Inner, Title, Frame, Item, Body, Header } from './styles/accordion';
+import { Container, Inner, Title, Item, Body, Header } from './styles/accordion';
 
 const ToggleContext = createContext();
 
@@ -15,9 +15,9 @@ Accordion.Title = function AccordianTitle({children, ...restProps}){
     return <Title {...restProps}>{children}</Title>
 }
 
-Accordion.Frame = function AccordianFrame({children, ...restProps}){
-    return <Frame {...restProps}>{children}</Frame>
-}
+// Accordion.Frame = function AccordianFrame({children, ...restProps}){
+//     return <Frame {...restProps}>{children}</Frame>
+// }
 
 Accordion.Item = function AccordianItem({children, ...restProps}){
     const [toggleShow, setToggleShow] = useState(false);
