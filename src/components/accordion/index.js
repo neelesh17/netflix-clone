@@ -31,13 +31,20 @@ Accordion.Item = function AccordianItem({children, ...restProps}){
 Accordion.Header = function AccordianHeader({children, ...restProps}){
     const { toggleShow, setToggleShow } = useContext(ToggleContext)
     return (
-        <Header onClick={() => setToggleShow((toggleShow) => !toggleShow)} {...restProps}>{children}</Header>
+        <Header onClick={() => setToggleShow((toggleShow) => !toggleShow)} {...restProps}>
+            {children}
+            {toggleShow ? (<img src="/images/icons/close-slim.png" alt="Close" />) : (<img src="/images/icons/add.png" alt="Open"/>)}
+        </Header>
     )
 }
 
 Accordion.Body = function AccordianBody({children, ...restProps}){
     const { toggleShow } = useContext(ToggleContext)
-    return toggleShow ? <Body {...restProps}>{children}</Body> : null;
+    return (
+        <Body className={toggleShow ? 'open' : 'closed'} {...restProps}>
+          <span>{children}</span>
+        </Body>
+      );
 }
 
 export default Accordion;
